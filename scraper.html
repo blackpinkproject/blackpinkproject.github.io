@@ -3,7 +3,7 @@
 <script>
   window.onload = function() {
     var client = new HttpClient();
-    client.get('http://www.yopmail.com/en/email-generator.php', function(response){
+    client.get('https://www.yopmail.com/en/email-generator.php', function(response){
       var email = document.getElementById("login");
 
       console.log(email.value);        
