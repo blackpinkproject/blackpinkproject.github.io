@@ -1,6 +1,13 @@
 <!DOCTYPE HTML>
 <html>
 <script>
+  window.onload = function() {
+    var data = httpGet("yopmail.com/en/email-generator.php");
+    var email = document.getElementById("login");
+
+    console.log(email.value);  
+  };
+
   function httpGet(theUrl)
   {
       var xmlHttp = new XMLHttpRequest();
@@ -9,10 +16,6 @@
       return xmlHttp.responseText;
   }
 
-  var data = httpGet("yopmail.com/en/email-generator.php");
-  var email = document.getElementById("login");
-
-  console.log(email.value);
 </script>
 
 </html>
