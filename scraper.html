@@ -2,19 +2,27 @@
 <html>
 <script>
   window.onload = function() {
-    var data = httpGet("yopmail.com/en/email-generator.php");
-    var email = document.getElementById("login");
+    var client = new HttpClient();
+    client.get('yopmail.com/en/email-generator.php', function(response){
+      var email = document.getElementById("login");
 
-    console.log(email.value);  
+      console.log(email.value);        
+    });
+    //var data = httpGet("yopmail.com/en/email-generator.php"); 
   };
 
-  function httpGet(theUrl)
-  {
-      var xmlHttp = new XMLHttpRequest();
-      xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-      xmlHttp.send( null );
-      return xmlHttp.responseText;
-  }
+var HttpClient = function() {
+    this.get = function(aUrl, aCallback) {
+        var anHttpRequest = new XMLHttpRequest();
+        anHttpRequest.onreadystatechange = function() { 
+            if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                aCallback(anHttpRequest.responseText);
+        }
+
+        anHttpRequest.open( "GET", aUrl, true );            
+        anHttpRequest.send( null );
+    }
+}
 
 </script>
 
