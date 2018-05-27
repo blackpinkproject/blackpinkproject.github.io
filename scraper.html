@@ -1,15 +1,16 @@
 <!DOCTYPE HTML>
 <html>
 <script>
-  window.onload = function() {
-    var client = new HttpClient();
-    client.get('https://www.yopmail.com/en/email-generator.php', function(response){
-      var email = document.getElementById("login");
+window.onload = function() {
+  var client = new HttpClient();
+  client.get('www.yopmail.com/en/email-generator.php', function(response){
+    var email = document.getElementById("login");
 
-      console.log(email.value);        
-    });
-    //var data = httpGet("yopmail.com/en/email-generator.php"); 
-  };
+    console.log(email.value);        
+  });
+  //var data = httpGet("yopmail.com/en/email-generator.php"); 
+};
+
 
 var HttpClient = function() {
     this.get = function(aUrl, aCallback) {
@@ -25,5 +26,5 @@ var HttpClient = function() {
 }
 
 </script>
-
+<p id="emails"></p>
 </html>
