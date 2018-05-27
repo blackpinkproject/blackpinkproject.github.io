@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html>
+<script>
+  function httpGet(theUrl)
+  {
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+      xmlHttp.send( null );
+      return xmlHttp.responseText;
+  }
+
+  var data = httpGet("yopmail.com/en/email-generator.php");
+  var email = document.getElementById("login");
+
+  console.log(email.value);
+</script>
+
+</html>
